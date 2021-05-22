@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DetailedViewComponent } from './components/detailed-view/detailed-view.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '**', component: HomeComponent },
+  {
+    path: 'artist/:id',
+    component: DetailedViewComponent,
+  },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

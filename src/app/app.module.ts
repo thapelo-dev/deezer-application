@@ -22,6 +22,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { ArtistEffects } from './ngrx-store/effects/artist.effects';
 import { HttpClientModule } from '@angular/common/http';
 import * as fromRoot from './ngrx-store/reducers';
+import { AlbumEffects } from './ngrx-store/effects/album.effects';
+import { TracklistEffects } from './ngrx-store/effects/tracklist.effects';
+import { SearchArtistEffects } from './ngrx-store/effects/search-artist.effects';
 
 export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.ArtistState>>('root reducer');
 
@@ -46,7 +49,7 @@ export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.Artist
     HttpClientModule,
     StoreModule.forRoot(REDUCER_TOKEN, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([ArtistEffects])
+    EffectsModule.forRoot([ArtistEffects, AlbumEffects, TracklistEffects, SearchArtistEffects])
   ],
   providers: [
     { provide: REDUCER_TOKEN, useValue: fromRoot.reducers }

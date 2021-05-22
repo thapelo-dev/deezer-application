@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadArtists } from 'src/app/ngrx-store/actions/artist.actions';
-import { artistError, artistList, artistLoader } from 'src/app/ngrx-store/selectors/artist.selectors';
+import { loadSearchArtists } from 'src/app/ngrx-store/actions/search-artist.actions';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   selectedArtist: any;
 
+
   constructor(private store: Store) { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   onSearch(searchTerm) {
     if (searchTerm !== '') {
-      this.store.dispatch(loadArtists({ searchTerm }));
+      this.store.dispatch(loadSearchArtists({ searchTerm }));
     }
   }
 

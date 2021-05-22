@@ -36,7 +36,7 @@ export const artistReducer = createReducer(
     artists: [],
     loading: false,
     error: true
-  })),
+  }))
 );
 
 export function reducer(state: ArtistState | undefined, action: Action) {

@@ -8,22 +8,22 @@ export interface ArtistState {
 }
 
 export interface State {
-  artist: ArtistState
+  [artistFeatureKey]: ArtistState
 }
 
-export const selectArtistFeature = (state: State) => state.artist;
+export const selectArtistFeature = (state: State) => state[artistFeatureKey];
 
 export const artistLoader = createSelector(
   selectArtistFeature,
-  (state: ArtistState) => state.loading
+  (state: ArtistState) => state?.loading
 );
 
 export const artistError = createSelector(
   selectArtistFeature,
-  (state: ArtistState) => state.error
+  (state: ArtistState) => state?.error
 );
 
 export const artistList = createSelector(
   selectArtistFeature,
-  (state: ArtistState) => state.artists
+  (state: ArtistState) => state?.artists
 );
