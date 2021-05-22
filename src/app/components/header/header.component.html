@@ -1,7 +1,6 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid align-items-center pl-3">
+<nav class="navbar navbar-expand-lg pt-0">
+  <div class="container-fluid justify-content-start align-items-center pl-3">
     <img class="navbar-brand" src="/assets/deezer.png" alt="Deezer">
-    <ng-select [items]="cars" bindLabel="name" bindValue="id" [(ngModel)]="selectedArtist" (search)="onSearch($event)" (change)="onChange($event)">
-    </ng-select>
+    <input class="form-control form-control-lg" type="text" placeholder="Artist Search" [(ngModel)]="selectedArtist" (ngModelChange)="onSearch($event)">
   </div>
 </nav>

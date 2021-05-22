@@ -8,10 +8,10 @@ export interface ArtistState {
 }
 
 export interface State {
-  [artistFeatureKey]: ArtistState
+  artist: ArtistState
 }
 
-export const selectArtistFeature = (state: State) => state[artistFeatureKey];
+export const selectArtistFeature = (state: State) => state.artist;
 
 export const artistLoader = createSelector(
   selectArtistFeature,

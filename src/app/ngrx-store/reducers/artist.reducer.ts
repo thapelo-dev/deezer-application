@@ -28,7 +28,7 @@ export const artistReducer = createReducer(
   on(fromArtistActions.loadArtistsSuccess, (state, { searchResults }) => ({
     ...state,
     loading: false,
-    artists: searchResults,
+    artists: searchResults.data.map((search: any) => (search.artist)),
     error: false
   })),
   on(fromArtistActions.loadArtistsFailure, state => ({

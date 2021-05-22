@@ -11,7 +11,7 @@ export class ArtistEffects {
 
   searchArtist$ = createEffect(() => this.actions$.pipe(
     ofType(fromArtistActions.loadArtists),
-    debounceTime(300),
+    debounceTime(400),
     distinctUntilChanged(),
     switchMap((action) => this.deezerService.searchDeezer(action.searchTerm)
       .pipe(

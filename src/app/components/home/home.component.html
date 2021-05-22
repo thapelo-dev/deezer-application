@@ -1,3 +1,8 @@
-<div class="container">
-  <p>home works!</p>
+<div class="container content-height">
+  <app-loader [isLoading]="loading"></app-loader>
+  <div class="row align-items-center" *ngIf="!loading && artists.length > 0">
+    <div class="col" *ngFor="let artist of artists">
+      <app-artist [artist]="artist"></app-artist>
+    </div>
+  </div>
 </div>

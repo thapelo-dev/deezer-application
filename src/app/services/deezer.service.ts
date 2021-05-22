@@ -7,16 +7,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DeezerService {
   private rootUrl = environment.baseUrl;
-  // private httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //   })
-  // };
+
 
   constructor(private http: HttpClient) { }
 
   searchDeezer(searchTerm: any) {
-    return this.http.get<any>(`${this.rootUrl}search?q=${searchTerm}`)
+    return this.http.get<any>(`${this.rootUrl}search?q=artist:${searchTerm}`)
   }
 
   getArtist(params: any) {

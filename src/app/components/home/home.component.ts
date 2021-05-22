@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  loading: boolean = false;
+  artists = [];
+
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.store.subscribe((data: any) => {
+      this.artists = data.artist.artists;
+      this.loading = data.artist.loading;
+    })
   }
 
 }
