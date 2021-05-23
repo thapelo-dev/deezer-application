@@ -14,7 +14,11 @@ export class HeaderComponent implements OnInit {
 
   selectedArtist: any;
   isHomeCmp = true;
-  constructor(private store: Store<DeezerState>, private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private store: Store<DeezerState>,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         if (event.url.includes('artist')) {
