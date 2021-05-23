@@ -1,23 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-8">
-      <div class="card">
-        <img src="" class="card-img-top" alt="image">
-        <div class="card-body">
-          <p class="card-text">Bon Jovi</p>
-          <p class="card-text">
-            <strong>128K</strong> Fans</p>
-        </div>
-      </div>
+      <app-artist-info [artistId]="artistId"></app-artist-info>
     </div>
     <div class="col-12 col-md-4">
-      <app-track></app-track>
+      <app-track [artistId]="artistId"></app-track>
     </div>
   </div>
-
   <div class="row">
-    <div class="col">
-      <app-album></app-album>
-    </div>
+    <app-album [artistId]="artistId"></app-album>
   </div>
 </div>

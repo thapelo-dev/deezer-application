@@ -5,35 +5,35 @@ import * as fromArtistActions from '../actions/artist.actions';
 export const artistFeatureKey = 'artist';
 
 export interface ArtistState {
-  artists: [];
+  artist: any;
   loading: boolean;
   error: boolean;
 }
 
 export const initialState: ArtistState = {
-  artists: [],
+  artist: {},
   loading: false,
   error: false,
 };
 
 
-export const artistReducer = createReducer(
+const artistReducer = createReducer(
   initialState,
   on(fromArtistActions.loadArtists, state => ({
     ...state,
-    artists: [],
+    artist: {},
     loading: true,
     error: false
   })),
-  on(fromArtistActions.loadArtistsSuccess, (state, { searchResults }) => ({
+  on(fromArtistActions.loadArtistsSuccess, (state, { artistInfo }) => ({
     ...state,
     loading: false,
-    artists: searchResults.data.map((search: any) => (search.artist)),
+    artist: artistInfo,
     error: false
   })),
   on(fromArtistActions.loadArtistsFailure, state => ({
     ...state,
-    artists: [],
+    artist: {},
     loading: false,
     error: true
   }))

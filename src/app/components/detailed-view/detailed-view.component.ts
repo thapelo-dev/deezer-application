@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detailed-view',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailedViewComponent implements OnInit {
 
-  constructor() { }
+  artistId;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.artistId = this.route.snapshot.params.id
   }
 
 }

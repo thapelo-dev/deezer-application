@@ -2,12 +2,12 @@ import { createAction, props } from '@ngrx/store';
 
 export const loadArtists = createAction(
   '[Artist] Load Artists',
-  props<{ searchTerm: string }>()
+  props<{ id: any }>()
 );
 
 export const loadArtistsSuccess = createAction(
   '[Artist] Load Artists Success',
-  props<{ searchResults: any }>()
+  props<{ artistInfo: any }>()
 );
 
 export const loadArtistsFailure = createAction(

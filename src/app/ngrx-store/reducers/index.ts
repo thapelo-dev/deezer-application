@@ -12,15 +12,15 @@ import * as fromAlbum from './album.reducer';
 import * as fromSearchArtist from './search-artist.reducer';
 
 
-export interface ArtistState {
+export interface DeezerState {
 
   [fromArtist.artistFeatureKey]: fromArtist.ArtistState;
-  [fromTracklist.tracklistFeatureKey]: fromTracklist.State;
-  [fromAlbum.albumFeatureKey]: fromAlbum.State;
+  [fromTracklist.tracklistFeatureKey]: fromTracklist.TopTrackListState;
+  [fromAlbum.albumFeatureKey]: fromAlbum.ArtistAlbumState;
   [fromSearchArtist.searchArtistFeatureKey]: fromSearchArtist.SearchArtistsState;
 }
 
-export const reducers: ActionReducerMap<ArtistState> = {
+export const reducers: ActionReducerMap<DeezerState> = {
 
   [fromArtist.artistFeatureKey]: fromArtist.reducer,
   [fromTracklist.tracklistFeatureKey]: fromTracklist.reducer,
@@ -29,4 +29,4 @@ export const reducers: ActionReducerMap<ArtistState> = {
 };
 
 
-export const metaReducers: MetaReducer<ArtistState>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<DeezerState>[] = !environment.production ? [] : [];

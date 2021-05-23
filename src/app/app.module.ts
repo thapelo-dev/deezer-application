@@ -25,8 +25,9 @@ import * as fromRoot from './ngrx-store/reducers';
 import { AlbumEffects } from './ngrx-store/effects/album.effects';
 import { TracklistEffects } from './ngrx-store/effects/tracklist.effects';
 import { SearchArtistEffects } from './ngrx-store/effects/search-artist.effects';
+import { ArtistInfoComponent } from './components/artist-info/artist-info.component';
 
-export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.ArtistState>>('root reducer');
+export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.DeezerState>>('root reducer');
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.Artist
     AlbumComponent,
     TrackComponent,
     HomeComponent,
-    DetailedViewComponent
+    DetailedViewComponent,
+    ArtistInfoComponent
   ],
   imports: [
     BrowserModule,

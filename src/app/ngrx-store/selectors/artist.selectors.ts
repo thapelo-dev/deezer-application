@@ -1,29 +1,26 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { DeezerState } from '../reducers';
 import { artistFeatureKey } from '../reducers/artist.reducer';
 
 export interface ArtistState {
-  artists: [];
+  artist: any;
   loading: boolean;
   error: boolean;
 }
 
-export interface State {
-  [artistFeatureKey]: ArtistState
-}
-
-export const selectArtistFeature = (state: State) => state[artistFeatureKey];
+export const selectArtistFeature = createFeatureSelector<DeezerState, ArtistState>(artistFeatureKey);
 
 export const artistLoader = createSelector(
   selectArtistFeature,
-  (state: ArtistState) => state?.loading
+  (state: ArtistState) => state.loading
 );
 
 export const artistError = createSelector(
   selectArtistFeature,
-  (state: ArtistState) => state?.error
+  (state: ArtistState) => state.error
 );
 
-export const artistList = createSelector(
+export const artistData = createSelector(
   selectArtistFeature,
-  (state: ArtistState) => state?.artists
+  (state: ArtistState) => state.artist
 );

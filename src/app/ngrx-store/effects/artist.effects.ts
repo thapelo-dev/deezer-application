@@ -9,14 +9,12 @@ import { of } from 'rxjs';
 @Injectable()
 export class ArtistEffects {
 
-  searchArtist$ = createEffect(() => this.actions$.pipe(
+  ArtistInfo$ = createEffect(() => this.actions$.pipe(
     ofType(fromArtistActions.loadArtists),
-    debounceTime(400),
-    distinctUntilChanged(),
-    switchMap((action) => this.deezerService.searchDeezer(action.searchTerm)
+    switchMap((action) => this.deezerService.getArtistInfo(action.id, null, '')
       .pipe(
-        map((response) => fromArtistActions.loadArtistsSuccess({ searchResults: response })),
-        catchError((searchError) => of(fromArtistActions.loadArtistsFailure({ error: searchError })))
+        map((response) => fromArtistActions.loadArtistsSuccess({ artistInfo: response })),
+        catchError((error) => of(fromArtistActions.loadArtistsFailure({ error })))
       ))
   ));
 

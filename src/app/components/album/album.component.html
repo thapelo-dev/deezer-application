@@ -1,1 +1,13 @@
-<p>album works!</p>
+<app-loader [isLoading]="(loading$ | async)"></app-loader>
+
+<div *ngIf="!(loading$ | async) && (artistAlbums$ | async).length > 0">
+  <div class="col" *ngFor="let album of (artistAlbums$ | async)">
+    <div class="card mb-3 m-auto" style="width: 14rem;">
+      <img src="{{album.cover_medium}}" class="card-img-top" alt="image">
+    </div>
+    <div class="card-body">
+      <p>{{album.title}}</p>
+      <p>{{album.release_date}}</p>
+    </div>
+  </div>
+</div>

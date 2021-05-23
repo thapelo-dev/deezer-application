@@ -1,12 +1,13 @@
 import { createAction, props } from '@ngrx/store';
 
 export const loadTracklists = createAction(
-  '[Tracklist] Load Tracklists'
+  '[Tracklist] Load Tracklists',
+  props<{ id: any, params: any }>()
 );
 
 export const loadTracklistsSuccess = createAction(
   '[Tracklist] Load Tracklists Success',
-  props<{ data: any }>()
+  props<{ topTracksResults: any }>()
 );
 
 export const loadTracklistsFailure = createAction(
