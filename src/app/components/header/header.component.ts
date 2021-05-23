@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { loadSearchArtists } from 'src/app/ngrx-store/actions/search-artist.actions';
 import { DeezerState } from 'src/app/ngrx-store/reducers';
@@ -12,7 +13,18 @@ import { DeezerState } from 'src/app/ngrx-store/reducers';
 export class HeaderComponent implements OnInit {
 
   selectedArtist: any;
-  constructor(private store: Store<DeezerState>) { }
+  isHomeCmp = true;
+  constructor(private store: Store<DeezerState>, private router: Router, private route: ActivatedRoute) {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url.includes('artist')) {
+          this.isHomeCmp = false;
+        } else {
+          this.isHomeCmp = true;
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
 
@@ -21,10 +33,13 @@ export class HeaderComponent implements OnInit {
   onSearch(searchTerm) {
     if (searchTerm !== '') {
       this.store.dispatch(loadSearchArtists({ searchTerm }));
+      if (!this.isHomeCmp) {
+        this.router.navigate(['/'])
+      }
     }
   }
 
-  onChange(event: any) {
-    console.log(event)
+  handleGoHome() {
+    this.router.navigate(['/'])
   }
 }

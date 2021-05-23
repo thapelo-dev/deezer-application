@@ -1,8 +1,14 @@
 <div class="container content-height">
   <app-loader [isLoading]="(loading$ | async)"></app-loader>
-  <div class="row align-items-center" *ngIf="!(loading$ | async) && (artists$ | async).length > 0">
-    <div class="col" *ngFor="let artist of (artists$ | async)">
-      <app-artist [artist]="artist"></app-artist>
+  <div *ngIf="!(loading$ | async) && (artists$ | async).length > 0">
+    <div class="row">
+      <h3>Top Search Results</h3>
+      <hr/>
+    </div>
+    <div class="row align-items-center">
+      <div class="col" *ngFor="let artist of (artists$ | async)">
+        <app-artist [artist]="artist"></app-artist>
+      </div>
     </div>
   </div>
 </div>

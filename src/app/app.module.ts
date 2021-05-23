@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { AlertMessageComponent } from './components/alert-message/alert-message.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { AlbumComponent } from './components/album/album.component';
 import { TrackComponent } from './components/track/track.component';
@@ -26,6 +25,8 @@ import { AlbumEffects } from './ngrx-store/effects/album.effects';
 import { TracklistEffects } from './ngrx-store/effects/tracklist.effects';
 import { SearchArtistEffects } from './ngrx-store/effects/search-artist.effects';
 import { ArtistInfoComponent } from './components/artist-info/artist-info.component';
+import { SecToMinPipe } from './pipes/sec-to-min.pipe';
+import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.DeezerState>>('root reducer');
 
@@ -35,13 +36,14 @@ export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.Deezer
     LoaderComponent,
     AlertMessageComponent,
     HeaderComponent,
-    FooterComponent,
     ArtistComponent,
     AlbumComponent,
     TrackComponent,
     HomeComponent,
     DetailedViewComponent,
-    ArtistInfoComponent
+    ArtistInfoComponent,
+    SecToMinPipe,
+    NumberFormatPipe
   ],
   imports: [
     BrowserModule,
