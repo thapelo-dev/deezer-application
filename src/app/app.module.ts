@@ -11,7 +11,6 @@ import { AlbumComponent } from './components/album/album.component';
 import { TrackComponent } from './components/track/track.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailedViewComponent } from './components/detailed-view/detailed-view.component';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './ngrx-store/reducers';
@@ -48,7 +47,6 @@ export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.Deezer
   ],
   imports: [
     BrowserModule,
-    NgSelectModule,
     FormsModule,
     FontAwesomeModule,
     AppRoutingModule,

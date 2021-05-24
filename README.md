@@ -1,27 +1,51 @@
-# DeezerApplication
+# Deezer Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+A single page application that will allow you to search for your favourite artist
+
+## Features
+
+- Search for an artist
+- Display search results
+- View more details(albums, top tracks, number of fans) of an artist
+
+## Tech
+
+The deezer app uses a number of open source projects to work properly:
+
+- Angular
+- Bootstrap
+- Karma
+- Jasmine
+- Heroku
+
+## Code
+
+The application code is hosted on https://github.com/thapelo-dev/deezer-application. You can clone from Github. 
+
+## Demo Server
+
+You can see the running demo here https://deezer-application.herokuapp.com/.
+Request CORS temporary access on this link: https://cors-anywhere.herokuapp.com/corsdemo
+
+## Installation
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+cd deezer-application
+npm i
+ng serve
+```
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Request CORS temporary access on this link: https://cors-anywhere.herokuapp.com/corsdemo
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Further questions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+If you have any further questions, please shoot me an email.
