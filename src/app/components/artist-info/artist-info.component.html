@@ -1,0 +1,12 @@
+<div class="container mb-4 mb-md-0">
+  <app-loader [isLoading]="(loading$ | async)"></app-loader>
+  <div class="card" *ngIf="!(loading$ | async) && (artistInfo$ | async)">
+    <img src="{{(artistInfo$ | async).picture_big}}" class="card-img-top" alt="image" *ngIf="(artistInfo$ | async).picture_big">
+    <img src="/assets/no-image-icon.png" class="card-img-top" alt="image" *ngIf="!(artistInfo$ | async).picture_big">
+    <div class="card-body">
+      <p class="card-text">{{(artistInfo$ | async).name}}</p>
+      <p class="card-text">
+        <strong>{{(artistInfo$ | async).nb_fan | numberFormat}}</strong> Fans</p>
+    </div>
+  </div>
+</div>

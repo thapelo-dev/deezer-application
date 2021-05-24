@@ -1,0 +1,19 @@
+<div class="container content-height mt-3">
+  <app-loader [isLoading]="(loading$ | async)"></app-loader>
+  <div *ngIf="!(loading$ | async)">
+    <div *ngIf="((artists$ | async).length > 0) else noResults">
+      <div class="row">
+        <h3>Top Search Results</h3>
+        <hr/>
+      </div>
+      <div class="row align-items-center">
+        <div class="col" *ngFor="let artist of (artists$ | async)">
+          <app-artist [artist]="artist"></app-artist>
+        </div>
+      </div>
+    </div>
+    <ng-template #noResults>
+      <app-alert-message [isInfo]="true"></app-alert-message>
+    </ng-template>
+  </div>
+</div>

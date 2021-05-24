@@ -1,0 +1,21 @@
+img {
+  width: 94px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.search-icon {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.9rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaaaaa;
+}
+
+.form-control {
+  padding-left: 2.4rem;
+}

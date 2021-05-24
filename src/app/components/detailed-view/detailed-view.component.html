@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <app-artist-info [artistId]="artistId"></app-artist-info>
+    </div>
+    <div class="col-12 col-md-4">
+      <app-track [artistId]="artistId"></app-track>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <app-album [artistId]="artistId"></app-album>
+  </div>
+</div>

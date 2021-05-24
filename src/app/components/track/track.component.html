@@ -1,0 +1,12 @@
+<div class="container">
+  <app-loader [isLoading]="(loading$ | async)"></app-loader>
+  <div *ngIf="!(loading$ | async) && (tracklist$ | async ).length > 0">
+    <h3>Top Tracks</h3>
+    <ol class="list-group list-group-flush">
+      <li class="d-flex justify-content-between list-group-item" *ngFor="let track of (tracklist$ | async ); let i = index;">
+        <span>{{i + 1}}. {{track.title_short}}</span>
+        <span class="pl-1">{{track.duration | secToMin }} min</span>
+      </li>
+    </ol>
+  </div>
+</div>
