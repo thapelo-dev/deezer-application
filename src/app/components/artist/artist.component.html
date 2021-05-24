@@ -1,5 +1,7 @@
 <div class="card mb-3 mx-md-0 mx-auto" style="width: 14rem;" (click)="handleViewMore(artist.id)">
-  <img src="{{artist.picture_medium}}" class="card-img-top" alt="image">
+  <img src="{{artist?.picture_medium}}" class="card-img-top" alt="image" *ngIf="artist?.picture_medium">
+  <img src="/assets/no-image-icon.png" class="card-img-top" alt="image" *ngIf="!artist?.picture_medium">
   <div class="card-body">
-    <p class="card-text">{{artist.name}}</p>
+    <p class="card-text">{{artist?.name}}</p>
   </div>
+</div>

@@ -5,7 +5,7 @@ import * as fromArtistAlbumsActions from '../actions/album.actions';
 export const albumFeatureKey = 'album';
 
 export interface ArtistAlbumState {
-  artistAlbums: [];
+  artistAlbums: any[];
   loading: boolean;
   error: boolean;
 }

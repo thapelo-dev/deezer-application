@@ -2,7 +2,7 @@ import { inject, TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of, throwError } from 'rxjs';
 import { DeezerService } from 'src/app/services/deezer.service';
-import { hot, cold } from 'jasmine-marbles';
+import { hot, cold, getTestScheduler } from 'jasmine-marbles';
 
 import { SearchArtistEffects } from './search-artist.effects';
 import * as fromSearchActions from '../actions/search-artist.actions';
@@ -39,15 +39,19 @@ describe('SearchArtistEffects', () => {
         }]
       };
 
+      const scheduler = getTestScheduler()
       spyOn(api, 'searchDeezer').and.callThrough().and.returnValue(of(success));
 
-      const action = fromSearchActions.loadSearchArtists({ searchTerm: 'eminem' });
-      const completion = fromSearchActions.loadSearchArtistsSuccess({ searchResults: success });
+      scheduler.run(() => {
+        const action = fromSearchActions.loadSearchArtists({ searchTerm: 'eminem' });
+        const completion = fromSearchActions.loadSearchArtistsSuccess({ searchResults: success });
 
-      actions$ = cold('a', { a: action });
-      const expected = cold('b', { b: completion });
+        actions$ = cold('a', { a: action });
+        const expected = cold('400ms b', { b: completion });
 
-      expect(effects.searchArtist$).toBeObservable(expected);
+        expect(effects.searchArtist$).toBeObservable(expected);
+      })
+
     }));
 
     it('should catch error for Artist Search', inject([DeezerService], (api: DeezerService) => {
@@ -56,15 +60,19 @@ describe('SearchArtistEffects', () => {
         message: 'error occured'
       };
 
+      const scheduler = getTestScheduler()
       spyOn(api, 'searchDeezer').and.callThrough().and.returnValue(throwError(error));
 
-      const action = fromSearchActions.loadSearchArtists({ searchTerm: 'don' });
-      const completion = fromSearchActions.loadSearchArtistsFailure({ error: error });
+      scheduler.run(() => {
+        const action = fromSearchActions.loadSearchArtists({ searchTerm: 'don' });
+        const completion = fromSearchActions.loadSearchArtistsFailure({ error: error });
 
-      actions$ = cold('a', { a: action });
-      const expected = cold('b', { b: completion });
+        actions$ = cold('a', { a: action });
+        const expected = cold('400ms b', { b: completion });
 
-      expect(effects.searchArtist$).toBeObservable(expected);
+        expect(effects.searchArtist$).toBeObservable(expected);
+      })
+
     }));
   })
 });

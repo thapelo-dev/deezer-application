@@ -1,16 +1,29 @@
+import { SearchArtistsState } from '../reducers/search-artist.reducer';
 import * as fromSearchArtist from './search-artist.selectors';
 
-describe('SearchArtist Selectors', () => {
-  it('should return search artist loader', () => {
-    expect(fromSearchArtist.searchArtistsLoader.projector(false)).toBeFalsy();
+
+describe("SearchArtist Selectors", () => {
+  const initialState: SearchArtistsState = {
+    artists: [{ id: 22, title: 'don' }, { id: 12, title: 'josh' }],
+    loading: false,
+    error: false,
+  };
+
+  it("should select the search artist loader", () => {
+    const result = fromSearchArtist.searchArtistsLoader.projector(initialState);
+    expect(result).toBeFalse();
   });
 
-  it('should return search artist error', () => {
-    expect(fromSearchArtist.searchArtistsError.projector(true)).toBeTruthy();
-  })
+  it("should select the search artist error", () => {
+    const result = fromSearchArtist.searchArtistsError.projector(initialState);
+    expect(result).toBeFalse();
+  });
 
-  it('should return search artist data to be defined', () => {
-    const searchArtist = ['test']
-    expect(fromSearchArtist.searchArtistsList.projector(searchArtist)).toBeGreaterThan(0);
-  })
+  it("should select the search artist data", () => {
+    const result = fromSearchArtist.searchArtistsList.projector(initialState);
+
+    expect(result.length).toEqual(2);
+    expect(result[1].id).toEqual(12);
+    expect(result[0].title).toEqual('don');
+  });
 });

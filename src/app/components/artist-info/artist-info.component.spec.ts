@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
@@ -20,11 +21,11 @@ describe('ArtistInfoComponent', () => {
       }
     }
     await TestBed.configureTestingModule({
-      imports: [NumberFormatPipe],
-      declarations: [ArtistInfoComponent],
+      declarations: [ArtistInfoComponent, NumberFormatPipe],
       providers: [
         provideMockStore({ initialState }),
-      ]
+      ],
+      schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   });

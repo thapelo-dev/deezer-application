@@ -1,7 +1,9 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Store } from '@material-ui/icons';
+import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { DeezerState } from 'src/app/ngrx-store/reducers';
+import { albumFeatureKey } from 'src/app/ngrx-store/reducers/album.reducer';
 
 import { AlbumComponent } from './album.component';
 
@@ -12,7 +14,7 @@ describe('AlbumComponent', () => {
 
   beforeEach(async () => {
     const initialState = {
-      album: {
+      [albumFeatureKey]: {
         artistAlbums: [],
         loading: false,
         error: false
@@ -22,7 +24,8 @@ describe('AlbumComponent', () => {
       declarations: [AlbumComponent],
       providers: [
         provideMockStore({ initialState }),
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   });

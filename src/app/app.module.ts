@@ -27,6 +27,7 @@ import { SearchArtistEffects } from './ngrx-store/effects/search-artist.effects'
 import { ArtistInfoComponent } from './components/artist-info/artist-info.component';
 import { SecToMinPipe } from './pipes/sec-to-min.pipe';
 import { NumberFormatPipe } from './pipes/number-format.pipe';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.DeezerState>>('root reducer');
 
@@ -49,6 +50,7 @@ export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.Deezer
     BrowserModule,
     NgSelectModule,
     FormsModule,
+    FontAwesomeModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(REDUCER_TOKEN, { metaReducers }),

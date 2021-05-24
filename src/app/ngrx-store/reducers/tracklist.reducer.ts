@@ -4,7 +4,7 @@ import * as fromTracklistActions from '../actions/tracklist.actions';
 export const tracklistFeatureKey = 'tracklist';
 
 export interface TopTrackListState {
-  topTracks: [];
+  topTracks: any[];
   loading: boolean;
   error: boolean;
 }

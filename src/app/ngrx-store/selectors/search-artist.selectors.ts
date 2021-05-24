@@ -3,7 +3,7 @@ import { searchArtistFeatureKey } from '../reducers/search-artist.reducer';
 import { DeezerState } from '../reducers';
 
 export interface SearchArtistsState {
-  artists: [];
+  artists: any[];
   loading: boolean;
   error: boolean;
 }

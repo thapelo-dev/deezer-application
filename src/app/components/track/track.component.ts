@@ -15,7 +15,7 @@ export class TrackComponent implements OnInit {
   @Input() artistId;
 
   loading$: Observable<boolean> = this.store.select(topTrackListLoader);
-  tracklist$: Observable<[]> = this.store.select(topTrackListList);
+  tracklist$: Observable<any[]> = this.store.select(topTrackListList);
 
   constructor(private store: Store<DeezerState>) { }
 

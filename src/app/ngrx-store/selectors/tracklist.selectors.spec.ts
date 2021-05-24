@@ -1,16 +1,27 @@
+import { TopTrackListState } from '../reducers/tracklist.reducer';
 import * as fromTopTrackList from './tracklist.selectors';
 
-describe('Tracklist Selectors', () => {
-  it('should return top tracks loader', () => {
-    expect(fromTopTrackList.topTrackListLoader.projector(false)).toBeFalsy();
+describe("Tracklist Selectors", () => {
+  const initialState: TopTrackListState = {
+    topTracks: [{ id: 22, title: 'the ball' }],
+    loading: false,
+    error: false,
+  };
+
+  it("should select the top tracks loader", () => {
+    const result = fromTopTrackList.topTrackListLoader.projector(initialState);
+    expect(result).toBeFalse();
   });
 
-  it('should return top tracks error', () => {
-    expect(fromTopTrackList.topTrackListError.projector(true)).toBeTruthy();
-  })
+  it("should select the top tracks error", () => {
+    const result = fromTopTrackList.topTrackListError.projector(initialState);
+    expect(result).toBeFalse();
+  });
 
-  it('should return top tracks for artist data to be defined', () => {
-    const topTracks = ['test']
-    expect(fromTopTrackList.topTrackListList.projector(topTracks)).toBeGreaterThan(0);
-  })
+  it("should select the top tracks data", () => {
+    const result = fromTopTrackList.topTrackListList.projector(initialState);
+
+    expect(result[0].id).toEqual(22);
+    expect(result[0].title).toEqual('the ball');
+  });
 });

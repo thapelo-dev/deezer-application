@@ -12,7 +12,7 @@ import { searchArtistsLoader, searchArtistsList } from 'src/app/ngrx-store/selec
 export class HomeComponent implements OnInit {
 
   loading$: Observable<boolean> = this.store.select(searchArtistsLoader);
-  artists$: Observable<[]> = this.store.select(searchArtistsList);
+  artists$: Observable<any[]> = this.store.select(searchArtistsList);
 
   constructor(private store: Store<DeezerState>) { }
 

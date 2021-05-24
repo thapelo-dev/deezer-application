@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-alert-message',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./alert-message.component.scss']
 })
 export class AlertMessageComponent implements OnInit {
-
+  @Input() isInfo = false;
   constructor() { }
 
   ngOnInit(): void {

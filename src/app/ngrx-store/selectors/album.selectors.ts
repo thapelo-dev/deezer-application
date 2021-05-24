@@ -3,7 +3,7 @@ import { DeezerState } from '../reducers';
 import { albumFeatureKey } from '../reducers/album.reducer';
 
 export interface ArtistAlbumState {
-  artistAlbums: [];
+  artistAlbums: any[];
   loading: boolean;
   error: boolean;
 }

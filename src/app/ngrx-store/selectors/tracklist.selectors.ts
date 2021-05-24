@@ -3,7 +3,7 @@ import { DeezerState } from '../reducers';
 import { tracklistFeatureKey } from '../reducers/tracklist.reducer';
 
 export interface TopTrackListState {
-  topTracks: [];
+  topTracks: any[];
   loading: boolean;
   error: boolean;
 }

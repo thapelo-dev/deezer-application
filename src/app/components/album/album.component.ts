@@ -13,7 +13,7 @@ import { artistAlbumList, artistAlbumLoader } from 'src/app/ngrx-store/selectors
 export class AlbumComponent implements OnInit {
   @Input() artistId;
   loading$: Observable<boolean> = this.store.select(artistAlbumLoader);
-  artistAlbums$: Observable<[]> = this.store.select(artistAlbumList);
+  artistAlbums$: Observable<any[]> = this.store.select(artistAlbumList);
 
   constructor(private store: Store<DeezerState>) { }
 

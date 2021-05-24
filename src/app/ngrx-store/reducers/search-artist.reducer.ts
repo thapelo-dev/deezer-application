@@ -4,7 +4,7 @@ import * as fromSearchArtistActions from '../actions/search-artist.actions';
 export const searchArtistFeatureKey = 'searchArtist';
 
 export interface SearchArtistsState {
-  artists: [];
+  artists: any[];
   loading: boolean;
   error: boolean;
 }
